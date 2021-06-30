@@ -53,21 +53,22 @@ void loop() {
   // set the cursor to column 0, line 1
   // (note: line 1 is the second row, since counting begins with 0):
 //  lcd.setCursor(0, 1);
-
   temp = temp_ctrl(kettle_relay_pin, target_temp);
 
 //  lcd.print(val);
 
-  char input = check_next();
+  if (temp > target_temp -2){
 
-  servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
-  
+    servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
+    char input = check_next();
+    exit(0);
+  }
+  delay(5);
 }
 
 
 void servo_circle(Servo Xservo, Servo Yservo, int radius, unsigned long duration, int pump_relay_pin){
   duration = duration + millis();
-  int pos = 0;
   boolean cycle = false;
   while(cycle == false){
     for (int i=0; i<360;i++){
@@ -104,9 +105,9 @@ boolean motor_ctrl(unsigned long duration, int pump_relay_pin){
 int temp_ctrl(int kettle_relay_pin, int target_temp){
   int val = thermocouple.readCelsius();
   
-  if (val < target_temp - 1) digitalWrite(kettle_relay_pin, HIGH);
+  if (val < target_temp + 2) digitalWrite(kettle_relay_pin, HIGH);
   
-  else if (val > target_temp + 1) digitalWrite(kettle_relay_pin, LOW);
+  else if (val > target_temp - 2) digitalWrite(kettle_relay_pin, LOW);
 
   return val;
 }
