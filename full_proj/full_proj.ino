@@ -1,6 +1,5 @@
 #include <Servo.h>
 
-#include <AverageThermocouple.h>
 #include <MAX6675_Thermocouple.h>
 #include <SmoothThermocouple.h>
 #include <Thermocouple.h>
@@ -13,20 +12,20 @@ int thermo_so_pin  = 10, thermo_cs_pin  = 9, thermo_sck_pin = 8;
 
 int Xservo_pin = 2, Yservo_pin = 3;
 
-int kettle_relay_pin = 7; 
+int kettle_relay_pin = 5; 
 
-int pump_relay_pin = 6;
+int pump_relay_pin = 4;
 
-//const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2; 
+int button_pin = 11, led_pin = 12;
+
 
 // Constants
-float temp = 0;
-int radius = 45, target_temp = 90;
+int radius = 45;
+float target_temp = 90;
 //in millis
 unsigned long duration = 2000;
 
 //Initialize Devices
-//LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 MAX6675_Thermocouple thermocouple(thermo_sck_pin, thermo_cs_pin, thermo_so_pin);
 Servo Xservo;
 Servo Yservo;
@@ -37,33 +36,18 @@ void setup() {
 
   Xservo.attach(Xservo_pin);
   Yservo.attach(Yservo_pin);
-
-  
-//  lcd.begin(16, 2);
-//  // Print a message to the LCD.
-//  lcd.print("hello, world!");
-//  pinMode(thermo_vcc_pin, OUTPUT); 
-//  pinMode(thermo_gnd_pin, OUTPUT); 
-//  digitalWrite(thermo_vcc_pin, HIGH);
-//  digitalWrite(thermo_gnd_pin, LOW);
+  pinMode(pump_relay_pin, OUTPUT);
+  pinMode(led_pin, OUTPUT);
+  pinMode(button_pin, INPUT_PULLUP);
 }
 
 
 void loop() {
-  // set the cursor to column 0, line 1
-  // (note: line 1 is the second row, since counting begins with 0):
-//  lcd.setCursor(0, 1);
-  temp = temp_ctrl(kettle_relay_pin, target_temp);
-
-//  lcd.print(val);
-
-  if (temp > target_temp -2){
-
-    servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
-    char input = check_next();
-    exit(0);
-  }
-  delay(5);
+  temp_ctrl(kettle_relay_pin, target_temp);
+  
+  servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
+  check_next(button_pin,led_pin);
+  exit(0);
 }
 
 
@@ -102,8 +86,18 @@ boolean motor_ctrl(unsigned long duration, int pump_relay_pin){
   }
 }
 
-int temp_ctrl(int kettle_relay_pin, int target_temp){
-  int val = thermocouple.readCelsius();
+void temp_ctrl(int kettle_relay_pin, float target_temp){
+  float temp = 0;
+  while(temp < target_temp + 2){
+    temp = temp_check(kettle_relay_pin, target_temp);
+    Serial.print(temp);
+    Serial.print("/n");
+    delay(10);
+  }
+}
+
+int temp_check(int kettle_relay_pin, float target_temp){
+  float val = thermocouple.readCelsius();
   
   if (val < target_temp + 2) digitalWrite(kettle_relay_pin, HIGH);
   
@@ -112,14 +106,12 @@ int temp_ctrl(int kettle_relay_pin, int target_temp){
   return val;
 }
 
-char check_next(){
-  boolean go_next = false;
-  char input;
-  Serial.print("Press t to go next: \n");
-  while (go_next == false){
-    input = Serial.read();
-    delay(5);
-    if (input == 't') go_next = true;
+
+
+void check_next(int button_pin,int led_pin){
+  int button_state = digitalRead(button_pin);
+  while (button_state == HIGH){
+    digitalWrite(led_pin,HIGH);
   }
-  return input;
+  digitalWrite(led_pin,LOW);
 }
