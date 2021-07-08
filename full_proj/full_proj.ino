@@ -21,22 +21,23 @@ int button_pin = 11, led_pin = 12;
 
 // Constants
 int radius = 45;
-float target_temp = 90;
+float target_temp = 90, temp =0;
 //in millis
-unsigned long duration = 2000;
+unsigned long duration = 10000;
 
 //Initialize Devices
-MAX6675_Thermocouple thermocouple(thermo_sck_pin, thermo_cs_pin, thermo_so_pin);
+Thermocouple* thermocouple;
 Servo Xservo;
 Servo Yservo;
   
 void setup() {
   Serial.begin(9600);
   
-
+  thermocouple = new MAX6675_Thermocouple(thermo_sck_pin, thermo_cs_pin, thermo_so_pin);
   Xservo.attach(Xservo_pin);
   Yservo.attach(Yservo_pin);
   pinMode(pump_relay_pin, OUTPUT);
+  pinMode(kettle_relay_pin, OUTPUT);
   pinMode(led_pin, OUTPUT);
   pinMode(button_pin, INPUT_PULLUP);
 }
@@ -45,6 +46,8 @@ void setup() {
 void loop() {
   temp_ctrl(kettle_relay_pin, target_temp);
   
+  servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
+  check_next(button_pin,led_pin);
   servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
   check_next(button_pin,led_pin);
   exit(0);
@@ -87,31 +90,39 @@ boolean motor_ctrl(unsigned long duration, int pump_relay_pin){
 }
 
 void temp_ctrl(int kettle_relay_pin, float target_temp){
-  float temp = 0;
   while(temp < target_temp + 2){
-    temp = temp_check(kettle_relay_pin, target_temp);
+    temp = thermocouple->readCelsius();
     Serial.print(temp);
-    Serial.print("/n");
-    delay(10);
+    Serial.print("\n");
+    digitalWrite(kettle_relay_pin, HIGH);
+    delay(500);
   }
+  digitalWrite(kettle_relay_pin, LOW);
 }
 
-int temp_check(int kettle_relay_pin, float target_temp){
-  float val = thermocouple.readCelsius();
-  
-  if (val < target_temp + 2) digitalWrite(kettle_relay_pin, HIGH);
-  
-  else if (val > target_temp - 2) digitalWrite(kettle_relay_pin, LOW);
-
-  return val;
-}
+//int temp_check(int kettle_relay_pin, float target_temp){
+//  temp = thermocouple->readCelsius();
+//  Serial.print(val);
+//  Serial.print("\n");
+//  if (val < target_temp + 2) {
+//    digitalWrite(kettle_relay_pin, HIGH);
+//  }
+//  
+//  else if (val > target_temp - 2){
+//    digitalWrite(kettle_relay_pin, LOW);
+//  }
+//
+//  return temp;
+//}
 
 
 
 void check_next(int button_pin,int led_pin){
-  int button_state = digitalRead(button_pin);
+  int button_state = HIGH;
   while (button_state == HIGH){
+    button_state = digitalRead(button_pin);
     digitalWrite(led_pin,HIGH);
+    delay(10);
   }
   digitalWrite(led_pin,LOW);
 }
