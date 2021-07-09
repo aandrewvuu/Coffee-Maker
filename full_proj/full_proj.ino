@@ -20,10 +20,12 @@ int button_pin = 11, led_pin = 12;
 
 
 // Constants
-int radius = 45;
+int radius1 = 30, radius2 = 15, radius3 = 0;
 float target_temp = 90, temp =0;
 //in millis
-unsigned long duration = 10000;
+unsigned long duration1 = 3000, duration2 = 5000;
+//duration1 ~ 
+//duration2 ~ 180ml
 
 //Initialize Devices
 Thermocouple* thermocouple;
@@ -45,11 +47,14 @@ void setup() {
 
 void loop() {
   temp_ctrl(kettle_relay_pin, target_temp);
-  
-  servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
   check_next(button_pin,led_pin);
-  servo_circle(Xservo, Yservo, radius, duration, pump_relay_pin);
+  servo_circle(Xservo, Yservo, radius1, duration2, pump_relay_pin);
   check_next(button_pin,led_pin);
+  servo_circle(Xservo, Yservo, radius1, duration1, pump_relay_pin);
+  check_next(button_pin,led_pin);
+  servo_circle(Xservo, Yservo, radius1, duration2, pump_relay_pin);
+  check_next(button_pin,led_pin);
+  servo_circle(Xservo, Yservo, radius3, duration2, pump_relay_pin);
   exit(0);
 }
 
@@ -60,8 +65,8 @@ void servo_circle(Servo Xservo, Servo Yservo, int radius, unsigned long duration
   while(cycle == false){
     for (int i=0; i<360;i++){
       
-      double radians = i * PI/180;
-      double px = radius * cos(radians)+90;
+      double radians = 2*i * PI/180;
+      double px = radius * cos(radians)+110;
       double py = radius * sin(radians)+90;
       Xservo.write(px);
       Yservo.write(py);
@@ -90,7 +95,7 @@ boolean motor_ctrl(unsigned long duration, int pump_relay_pin){
 }
 
 void temp_ctrl(int kettle_relay_pin, float target_temp){
-  while(temp < target_temp + 2){
+  while(temp < target_temp){
     temp = thermocouple->readCelsius();
     Serial.print(temp);
     Serial.print("\n");
