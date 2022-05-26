@@ -11,3 +11,8 @@ This is a brief overview of the logic behind this:
 This is a basic wiring diagram:
 
 ![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/Wiring.png?raw=true)
+
+## Bill of Materials
+
+| Item | amount | Price |
+| -----|--------|-------|
