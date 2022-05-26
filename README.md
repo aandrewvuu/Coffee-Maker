@@ -6,9 +6,7 @@ As an avid coffee consumer, I always wanted to try different technques to make m
 
 This is a brief overview of the logic behind this:
 
-![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/Logic.png?raw=true)
-
-The final section where the pattern is copied is repeated to recreate certain pour methods and amount of water. 
+![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/Logic.png?raw=true) 
 
 This is a basic wiring diagram:
 
