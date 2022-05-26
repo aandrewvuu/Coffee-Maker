@@ -14,5 +14,6 @@ This is a basic wiring diagram:
 
 ## Bill of Materials
 
-| Item | amount | Price |
+| Item | Amount | Price |
 | -----|--------|-------|
+|as|asd|asdasda|
