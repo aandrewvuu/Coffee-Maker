@@ -1,6 +1,6 @@
-# Coffee-Maker
+# Coffee Maker
 
-This project looks to use an arduino to mimic the pour-over coffee method. I will cover a step by step guide as well as share my thought process while tackling this project.
+As an avid coffee consumer, I always wanted to try different technques to make my coffee. Combine my love for coffee and my passion for engineering, I sought to engineer a coffee machine that would utilize the pour over techinque to consistently create a delicious and flavourful coffee. I will cover a step by step guide as well as share my thought process while tackling this project.
 
 ## Preliminary Brainstorming
 
