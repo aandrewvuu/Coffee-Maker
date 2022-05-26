@@ -55,17 +55,15 @@ This is a basic wiring diagram:
 
 Wire everything according to the wiring diagram provided with the Arduino being the center of it all.
 
-Images here
-
 ## Software Part
 
 The code is located at: Coffee-Maker/full_proj/full_proj.ino
 
-## conclusion
+## Conclusion
 
 With the software and harware aspects of this project coming together, the coffee machine is complete and creates the most delicious coffee everyday.
 
-Images here
+![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/finale.png?raw=true)
 
 
 
