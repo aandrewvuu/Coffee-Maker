@@ -14,21 +14,22 @@ This is a basic wiring diagram:
 
 ## Bill of Materials
 
-| Item | Amount | Price |Link|
-| -----|--------|-------|---|
-|Arduino|1|xx|https://www.asdasd.com|
-|IoT Relay|1|xx|https://www.asdasd.com|
-|Pump|1|xx|https://www.asdasd.com|
-|Kettle|1|xx|https://www.asdasd.com|
-|Thermocouple|1|xx|https://www.asdasd.com|
-|Load cell|1|xx|https://www.asdasd.com|
-|Load cell ADC|1|xx|https://www.asdasd.com|
-|Servo Motor|2|xx|https://www.asdasd.com|
-|Plastic tubing|1|xx|https://www.asdasd.com|
-|Gasket|4|xx|https://www.asdasd.com|
-|1/4 inch Washer|4|xx|https://www.asdasd.com|
-|Brass nozzle fitting|1|xx|https://www.asdasd.com|
-|Screws|8|xx|https://www.asdasd.com|
+| Item | Amount | 
+| -----|--------|
+|Arduino|1|
+|IoT Relay|1|
+|Pump|1|
+|Kettle|1|
+|Thermocouple|1|
+|Load cell|1|
+|Load cell ADC|1|
+|Servo Motor|2|
+|Plastic tubing|1|
+|Copper Wire|1|
+|Gasket|4|
+|1/4 inch Washer|4|
+|Brass nozzle fitting|1|
+|Screws|8|
 
 
 
