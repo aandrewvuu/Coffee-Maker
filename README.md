@@ -33,7 +33,7 @@ This is a basic wiring diagram:
 
 ## Hardware Part
 
-###Preparing the Kettle
+### Preparing the Kettle
 
 1. Using a drill, drill 2 1/4 inch holes at the bottom of the kettle with the holes being seperated by at least 1 inch.
 2. Put a rubber gasket on the thermocouple and then stick it into the kettle. Put a rubber gasket on the other side of the thermocouple and a 1/4 inch nut and tighten it so that the thermocouple is soundly installed
