@@ -46,7 +46,10 @@ This is a basic wiring diagram:
 3. Connect plastic piping from the other end of the pump to the arm of the servo motor and tie it in place with a zip tie (again refer to the images).
 4. Glue to the tip of the load cell onto a 5 inch diameter platform that the cup would be placed on. Glue to the other size of the load cell to a shim to raise the load cell of the ground (Images again).
 
-Images here
+![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/load cell.jpg?raw=true)
+![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/wiring_diagram.png?raw=true)
+![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/wiring_diagram.png?raw=true)
+![alt text](https://github.com/vua6/Coffee-Maker/blob/main/images/wiring_diagram.png?raw=true)
 
 ### Wiring
 
