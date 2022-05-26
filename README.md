@@ -56,12 +56,7 @@ Images here
 
 ## Software Part
 
-Below is the code explained:
-
-```python
-var s = "teez hamra";
-alert(s);
-```
+The code is located at: Coffee-Maker/full_proj/full_proj.ino
 
 ## conclusion
 
