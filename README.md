@@ -1,6 +1,6 @@
 # Coffee Maker
 
-As an avid coffee consumer, I always wanted to try different technques to make my coffee. Combine my love for coffee and my passion for engineering, I sought to engineer a coffee machine that would utilize the pour over techinque to consistently create a delicious and flavourful coffee. I will cover a step by step guide as well as share my thought process while tackling this project.
+As avid coffee consumers, we always wanted to try different techniques to make my coffee. Combining our love for coffee and my passion for engineering, we sought to automate pour over techinque to consistently create a delicious and flavourful coffee. This readme will act as a step by step guide as well as share our thought process while tackling this project.
 
 ## Preliminary Brainstorming
 
@@ -35,16 +35,16 @@ This is a basic wiring diagram:
 
 ### Preparing the Kettle
 
-1. Using a drill, drill 2 1/4 inch holes at the bottom of the kettle with the holes being seperated by at least 1 inch.
-2. Put a rubber gasket on the thermocouple and then stick it into the kettle. Put a rubber gasket on the other side of the thermocouple and a 1/4 inch nut and tighten it so that the thermocouple is soundly installed
-3. Similiarly, put a rubber gasket on the 1/4 inch brass nozzle fitting. Stick the fitting into the kettle. Put a rubber gasket on the other side of the brass fitting and a 1/4 inch nut and tighten it so that the nozzle fitting is secured in place.
+1. Drill 2 1/4 inch holes at the bottom of the kettle with the holes being seperated by at least 1 inch.
+2. Insert a rubber gasket onto the thermocouple and then insert it into the newly made holes in the kettle. Place a rubber gasket on the other side of the thermocouple and a 1/4 inch nut and tighten it so that the thermocouple is firmly secured.
+3. Similiarly, place a rubber gasket onto the 1/4 inch brass nozzle fitting. Insert the fitting into the other kettle hole. Place a rubber gasket on the other side of the brass fitting and a 1/4 inch nut and tighten it so that the nozzle fitting is secured in place.
 
 ### Preparing the frame, nozzle system, and load cell
 
-1. Connect a sufficient amount of food safe and heat tolerant plastic piping between brass nozzle fitting and the pump.
+1. Connect a sufficient amount of food safe and heat tolerant plastic piping between brass nozzle fitting and the pump (must be able to handle boiling water).
 2. Install the 2 servo motors with one servo motor installed to the arm of the second servo motor (refer to the image).
-3. Connect plastic piping from the other end of the pump to the arm of the servo motor and tie it in place with a zip tie (again refer to the images mate).
-4. Glue to the tip os the load cell a 5 inch diameter platform that the cup would be placed on. Glue to the other size of the load cell a shim to raise the load cell of the ground (Images again).
+3. Connect plastic piping from the other end of the pump to the arm of the servo motor and tie it in place with a zip tie (again refer to the images).
+4. Glue to the tip of the load cell onto a 5 inch diameter platform that the cup would be placed on. Glue to the other size of the load cell to a shim to raise the load cell of the ground (Images again).
 
 Images here
 
