@@ -16,4 +16,4 @@ This is a basic wiring diagram:
 
 | Item | Amount | Price |Link|
 | -----|--------|-------|---|
-|as|asd|asdasda|
+|Arduino|1|xx|https://www.asdasd.com|
